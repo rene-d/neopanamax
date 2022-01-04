@@ -305,8 +305,8 @@ pub fn get_crate_path(
         2 => PathBuf::from("2"),
         3 => PathBuf::from("3"),
         n if n >= 4 => {
-            let first_two = crate_name.get(0..2)?;
-            let second_two = crate_name.get(2..4)?;
+            let first_two = crate_name.get(0..2)?.to_lowercase();
+            let second_two = crate_name.get(2..4)?.to_lowercase();
             [first_two, second_two].iter().collect()
         }
         _ => return None,

@@ -113,7 +113,7 @@ pub async fn serve(path: PathBuf, socket_addr: SocketAddr, tls_paths: Option<Tls
     // - "/crates/2/bm/0.11.0/bm-0.11.0.crate"
     // - "/crates/3/c/cde/0.1.1/cde-0.1.1.crate"
     // - "/crates/se/rd/serde/1.0.130/serde-1.0.130.crate"
-    // This format is used by Panamax, and/or is used if config.json contains "/crates/{prefix}/{crate}/{version}/{crate}-{version}.crate"
+    // This format is used by Panamax, and/or is used if config.json contains "/crates/{lowerprefix}/{crate}/{version}/{crate}-{version}.crate"
     let crates_mirror_path_2 = path.clone();
     let crates_dir_condensed_format_1 = warp::path!("crates" / "1" / String / String / String)
         .map(|name: String, version: String, crate_file: String| (name, version, crate_file))
